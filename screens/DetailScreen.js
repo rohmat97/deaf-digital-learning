@@ -20,10 +20,11 @@ const DetailsScreen = ({route, navigation}) => {
     <ScrollView contentContainerStyle={styles.container}>
       <Image source={{uri: item.imageUrl}} style={styles.image} />
       <Video
-        source={videoSource}
+        source={{uri: videoSource}} // URI for the video
         style={styles.video}
-        controls={true}
-        resizeMode="contain"
+        controls={true} // Show controls for the video
+        resizeMode="contain" // Adjust the video to fit within the container
+        useNativeControls={true} // Use native video controls for better performance
       />
 
       {/* Description */}
@@ -41,6 +42,7 @@ const DetailsScreen = ({route, navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexGrow: 1,
     padding: 16,
     alignItems: 'center',
@@ -64,6 +66,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 18,
+    color: '#555',
     marginBottom: 20,
     textAlign: 'center',
   },
