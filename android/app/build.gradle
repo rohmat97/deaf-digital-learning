@@ -101,6 +101,16 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+     applicationVariants.all { variant ->
+        def variantName = variant.name.capitalize()
+        def apkName = "deaf-digital-learning.apk"  // Customize the file name
+
+        variant.outputs.each { output ->
+            if (output.outputFileName != null && output.outputFileName.toString().endsWith(".apk")) {
+                output.outputFileName = apkName
+            }
+        }
+    }
 }
 
 dependencies {

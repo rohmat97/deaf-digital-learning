@@ -20,7 +20,7 @@ const DetailsScreen = ({route, navigation}) => {
     <ScrollView contentContainerStyle={styles.container}>
       <Image source={{uri: item.imageUrl}} style={styles.image} />
       <Video
-        source={{uri: videoSource}} // URI for the video
+        source={videoSource} // URI for the video
         style={styles.video}
         controls={true} // Show controls for the video
         resizeMode="contain" // Adjust the video to fit within the container
