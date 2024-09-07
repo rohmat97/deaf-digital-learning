@@ -7,27 +7,33 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
+import {getImageLocal} from '../utils/getImage';
 
-const data = require('../assets/data/category.json');
+const data = require('@assets/data/category.json');
 
 const HomeScreen = ({navigation}) => {
   // Render item function
-  const renderItem = ({item}) => (
-    <TouchableOpacity
-      onPress={() =>
-        navigation.navigate('Details', {
-          item: item,
-        })
-      }>
-      <View style={styles.itemContainer}>
-        <Image source={{uri: item.imageUrl}} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.description}>{item.description}</Text>
+  const renderItem = ({item}) => {
+    const source = item.isLocal
+      ? getImageLocal(item.imageUrl) // Static require for local images
+      : {uri: item.imageUrl}; // Remote images use uri
+    return (
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('Details', {
+            item: item,
+          })
+        }>
+        <View style={styles.itemContainer}>
+          <Image source={source} style={styles.image} />
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>{item.title}</Text>
+            <Text style={styles.description}>{item.description}</Text>
+          </View>
         </View>
-      </View>
-    </TouchableOpacity>
-  );
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <View style={styles.container}>
