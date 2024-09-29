@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {
   StyleSheet,
   Image,
@@ -16,14 +16,26 @@ import {FlatList} from 'react-native-gesture-handler';
 const data = require('@assets/data/category.json');
 
 const DetailsScreen = ({route, navigation}) => {
-  const [listData, setlistData] = useState([]);
+  const [listData, setListData] = useState([]);
   const {item} = route.params;
+  const videoRef = useRef(null); // Create a ref for the video
 
   useEffect(() => {
     navigation.setOptions({
       title: item.title || 'Details',
     });
-    setlistData(data[item.title]);
+
+    // Set list data only if item.title is valid
+    if (data[item.title]) {
+      setListData(data[item.title]);
+    }
+
+    return () => {
+      // Cleanup function to reset video when unmounting
+      if (videoRef.current) {
+        videoRef.current.seek(0); // Seek to the beginning
+      }
+    };
   }, [item, navigation]);
 
   // Define the local video path
@@ -54,6 +66,7 @@ const DetailsScreen = ({route, navigation}) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Video
+        ref={videoRef} // Set the video ref
         source={videoSource} // URI for the video
         style={styles.video}
         controls={true} // Show controls for the video
@@ -92,12 +105,6 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 18,
-    color: '#555',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  translation: {
-    fontSize: 16,
     color: '#555',
     marginBottom: 20,
     textAlign: 'center',

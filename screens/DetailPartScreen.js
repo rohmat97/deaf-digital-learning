@@ -1,15 +1,23 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {StyleSheet, ScrollView, Platform} from 'react-native';
 import Video from 'react-native-video'; // Import react-native-video
 import {getVideoLocal} from '../utils/getVideo';
 
 const DetailsPartScreen = ({route, navigation}) => {
   const {item} = route.params;
+  const videoRef = useRef(null); // Create a ref for the video
 
   useEffect(() => {
     navigation.setOptions({
       title: item.title || 'Details',
     });
+
+    return () => {
+      // Cleanup function to handle unmounting
+      if (videoRef.current) {
+        videoRef.current.seek(0); // Seek to the beginning
+      }
+    };
   }, [item, navigation]);
 
   // Define the local video path
@@ -21,10 +29,15 @@ const DetailsPartScreen = ({route, navigation}) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Video
+        ref={videoRef} // Set the video ref
         source={videoSource} // URI for the video
         style={styles.video}
         controls={true} // Show controls for the video
         resizeMode="contain" // Adjust the video to fit within the container
+        onEnd={() => {
+          // Optionally, handle video end
+          videoRef.current.seek(0); // Seek back to the beginning if needed
+        }}
       />
     </ScrollView>
   );
@@ -39,46 +52,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flexDirection: 'column',
   },
-  title: {
-    fontSize: 18,
-    color: '#555',
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
   video: {
     width: '100%',
     height: 200,
     marginBottom: 20,
-  },
-  description: {
-    fontSize: 18,
-    color: '#555',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  translation: {
-    fontSize: 16,
-    color: '#555',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  itemContainer: {
-    flexDirection: 'row',
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    width: '100%', // Ensure the itemContainer takes full width
-    alignItems: 'center',
-  },
-  image: {
-    width: 80,
-    height: 80,
-    marginRight: 10,
-    borderRadius: 5,
-  },
-  flatList: {
-    marginTop: 12,
-    minWidth: '100%', // Ensure FlatList takes full width
   },
 });
 
