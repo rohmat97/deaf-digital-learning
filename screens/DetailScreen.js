@@ -58,7 +58,6 @@ const DetailsScreen = ({route, navigation}) => {
         style={styles.video}
         controls={true} // Show controls for the video
         resizeMode="contain" // Adjust the video to fit within the container
-        useNativeControls={true} // Use native video controls for better performance
       />
       <Text style={styles.description}>Part of {item.title}</Text>
       <FlatList
