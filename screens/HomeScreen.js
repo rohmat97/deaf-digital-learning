@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -7,16 +7,14 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import {getImageLocal} from '../utils/getImage';
+import {getImageHomeLocal} from '../utils/getImage';
 
-const data = require('@assets/data/category.json');
+const data = require('@assets/data/homeCategory.json');
 
 const HomeScreen = ({navigation}) => {
   // Render item function
   const renderItem = ({item}) => {
-    const source = item.isLocal
-      ? getImageLocal(item.imageUrl) // Static require for local images
-      : {uri: item.imageUrl}; // Remote images use uri
+    const source = getImageHomeLocal(item.imageUrl);
     return (
       <TouchableOpacity
         onPress={() =>
@@ -28,7 +26,6 @@ const HomeScreen = ({navigation}) => {
           <Image source={source} style={styles.image} />
           <View style={styles.textContainer}>
             <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.description}>{item.description}</Text>
           </View>
         </View>
       </TouchableOpacity>

@@ -1,42 +1,145 @@
-[
-  {
-    "id": "1",
-    "title": "Hand",
-    "description": "The hand is a versatile and highly dexterous part of the human body, consisting of fingers, a thumb, and a palm. It allows us to grasp, manipulate objects, and perform intricate tasks.",
-    "translation": "Tangan adalah bagian tubuh manusia yang serbaguna dan sangat terampil, terdiri dari jari-jari, ibu jari, dan telapak tangan. Ini memungkinkan kita untuk menggenggam, memanipulasi objek, dan melakukan tugas-tugas rumit.",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Human-Hands-Front-Back.jpg/640px-Human-Hands-Front-Back.jpg",
-    "isLocal": false
-  },
-  {
-    "id": "2",
-    "title": "Head",
-    "description": "The head is the uppermost part of the human body, housing the brain, eyes, ears, nose, and mouth. It is responsible for critical functions such as thinking, seeing, hearing, smelling, and speaking, and it also plays a key role in controlling the body’s movements and actions.",
-    "translation": "Kepala adalah bagian paling atas dari tubuh manusia, yang menampung otak, mata, telinga, hidung, dan mulut. Ini bertanggung jawab atas fungsi penting seperti berpikir, melihat, mendengar, mencium, dan berbicara, serta memainkan peran penting dalam mengendalikan gerakan dan tindakan tubuh.",
-    "imageUrl": "https://lh5.googleusercontent.com/proxy/mgmJ12YjIP3-orA4AYr2P6iarT8anzJdGVCAZ7gQlhReVGGAb1tn6kcofvMLfOVtGvQ6L4eYILsd8vlrEZHhdLejaXc",
-    "isLocal": false
-  },
-  {
-    "id": "3",
-    "title": "Leg",
-    "description": "The leg is a powerful limb that supports the body’s weight and enables movement such as walking, running, and jumping. It includes the thigh, knee, shin, and foot.",
-    "translation": "Kaki adalah anggota tubuh yang kuat yang menopang berat badan dan memungkinkan gerakan seperti berjalan, berlari, dan melompat. Ini mencakup paha, lutut, tulang kering, dan kaki.",
-    "imageUrl": "https://www.shutterstock.com/image-photo/male-hairy-legs-isolated-on-600nw-164601392.jpg",
-    "isLocal": false
-  },
-  {
-    "id": "4",
-    "title": "Hair",
-    "description": "Hair is a protein filament that grows from follicles found in the skin. It plays a role in protecting the scalp and also contributes to the overall appearance of individuals.",
-    "translation": "Rambut adalah filamen protein yang tumbuh dari folikel yang ditemukan di kulit. Ini berperan dalam melindungi kulit kepala dan juga berkontribusi pada penampilan keseluruhan individu.",
-    "imageUrl": "hair",
-    "isLocal": true
-  },
-  {
-    "id": "5",
-    "title": "Face",
-    "description": "The face is the front part of the head that includes the eyes, nose, and mouth. It plays a key role in identity, facial expressions, and communication.",
-    "translation": "Wajah adalah bagian depan kepala yang mencakup mata, hidung, dan mulut. Ini memainkan peran penting dalam identitas, ekspresi wajah, dan komunikasi.",
-    "imageUrl": "face",
-    "isLocal": true
-  }
-]
+{
+  "HEAD": [
+    {
+      "id": "1",
+      "title": "Neck",
+      "imageUrl": "neck"
+    },
+    {
+      "id": "2",
+      "title": "Ear",
+      "imageUrl": "ear"
+    },
+    {
+      "id": "3",
+      "title": "Nose",
+      "imageUrl": "nose"
+    },
+    {
+      "id": "4",
+      "title": "Eyes",
+      "imageUrl": "eyes"
+    },
+    {
+      "id": "5",
+      "title": "Mouth",
+      "imageUrl": "mouth"
+    },
+    {
+      "id": "6",
+      "title": "Cheeks",
+      "imageUrl": "cheeks"
+    },
+    {
+      "id": "7",
+      "title": "Hair",
+      "imageUrl": "hair"
+    },
+    {
+      "id": "8",
+      "title": "Eyebrow",
+      "imageUrl": "eyebrow"
+    },
+    {
+      "id": "9",
+      "title": "Tongue",
+      "imageUrl": "tongue"
+    },
+    {
+      "id": "10",
+      "title": "Chin",
+      "imageUrl": "chin"
+    },
+    {
+      "id": "11",
+      "title": "Forehead",
+      "imageUrl": "forehead"
+    },
+    {
+      "id": "12",
+      "title": "Hip",
+      "imageUrl": "hip"
+    },
+    {
+      "id": "13",
+      "title": "Lip",
+      "imageUrl": "lip"
+    }
+  ],
+  "BODY": [
+    {
+      "id": "14",
+      "title": "Shoulders",
+      "imageUrl": "shoulders"
+    },
+    {
+      "id": "15",
+      "title": "Chest",
+      "imageUrl": "chest"
+    },
+    {
+      "id": "16",
+      "title": "Stomach",
+      "imageUrl": "stomach"
+    },
+    {
+      "id": "17",
+      "title": "Back",
+      "imageUrl": "back"
+    }
+  ],
+  "ARM": [
+    {
+      "id": "18",
+      "title": "Palm",
+      "imageUrl": "palm"
+    },
+    {
+      "id": "19",
+      "title": "Finger",
+      "imageUrl": "finger"
+    },
+    {
+      "id": "20",
+      "title": "Nails",
+      "imageUrl": "nails"
+    },
+    {
+      "id": "21",
+      "title": "Elbow",
+      "imageUrl": "elbow"
+    },
+    {
+      "id": "22",
+      "title": "Armpit",
+      "imageUrl": "armpit"
+    },
+    {
+      "id": "23",
+      "title": "Wrist",
+      "imageUrl": "wrist"
+    }
+  ],
+  "LEG": [
+    {
+      "id": "24",
+      "title": "Knee",
+      "imageUrl": "knee"
+    },
+    {
+      "id": "25",
+      "title": "Ankle",
+      "imageUrl": "ankle"
+    },
+    {
+      "id": "26",
+      "title": "Toe",
+      "imageUrl": "toe"
+    },
+    {
+      "id": "27",
+      "title": "Heel",
+      "imageUrl": "heel"
+    }
+  ]
+}
